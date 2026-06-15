@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Despesas — Viagem EUA · Chef Renata</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Despesas — Viagem EUA · Chef Renata</h1>
+    <p class="sub">Classifique cada gasto: <b>cobrar do cliente</b>, <b>despesa da Latin Exclusive</b> ou <b>despesa pessoal da chef</b>. Anexe a foto do recibo ao adicionar.</p>
+    <p class="badge">Banco de dados: <span id="storeName">…</span></p>
+  </header>
+
+  <section id="cards" class="cards"></section>
+
+  <section class="panel">
+    <h2>➕ Adicionar lançamento</h2>
+    <div class="form">
+      <input id="f_data" placeholder="Data (ex: 16/06)">
+      <input id="f_desc" placeholder="Descrição" class="wide">
+      <select id="f_cat">
+        <option>Cobrar do cliente</option>
+        <option>Despesa Latin Exclusive</option>
+        <option>Despesa pessoal da chef</option>
+        <option selected>A definir</option>
+      </select>
+      <input id="f_valor" placeholder="Valor (ex: 45,90)">
+      <select id="f_moeda"><option>USD</option><option>BRL</option><option>—</option></select>
+      <input id="f_pago" placeholder="Pago via (ex: Adiantamento)">
+      <label class="file">📎 Recibo<input id="f_file" type="file" accept="image/*"></label>
+      <input id="f_obs" placeholder="Observação" class="wide">
+      <button class="add" id="btnAdd">Adicionar</button>
+    </div>
+    <p class="hint" id="hint"></p>
+  </section>
+
+  <section class="panel">
+    <div class="tablebar">
+      <h2>Lançamentos</h2>
+      <button class="ghost" id="btnReload">↻ Atualizar</button>
+    </div>
+    <div class="tablescroll">
+    <table>
+      <thead><tr>
+        <th>Data</th><th>Descrição</th><th>Categoria</th><th>Valor</th><th>Moeda</th><th>Pago via</th><th>Recibo</th><th>Obs.</th><th></th>
+      </tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    </div>
+  </section>
+
+  <footer>Latin Exclusive · ferramenta interna · cada lançamento é gravado automaticamente no banco de dados configurado.</footer>
+</div>
+
+<div id="lightbox" class="lightbox"><div class="lb-inner"><div class="lb-bar"><span id="lb-cap"></span><button id="lb-close">✕</button></div><img id="lb-img" src=""></div></div>
+
+<script src="/app.js"></script>
+</body>
+</html>

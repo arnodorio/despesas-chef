@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: despesas-chef
+    runtime: node
+    plan: starter            # le plan gratuit n'a PAS de disque persistant -> dans ce cas, mettez RECEIPTS=drive
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: STORE
+        value: gsheet         # ou: zoho / local
+      - key: RECEIPTS
+        value: drive          # durable sans disque ; mettez "local" si vous utilisez un disque persistant
+      - key: PUBLIC_BASE_URL
+        sync: false
+      - key: GOOGLE_SHEET_ID
+        sync: false
+      - key: GOOGLE_SERVICE_ACCOUNT_B64
+        sync: false
+      - key: GOOGLE_RECEIPTS_FOLDER_ID
+        sync: false
+    # Disque persistant (optionnel) : décommentez pour RECEIPTS=local
+    # disk:
+    #   name: data
+    #   mountPath: /opt/render/project/src/public/receipts
+    #   sizeGB: 1
