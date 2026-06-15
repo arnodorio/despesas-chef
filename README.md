@@ -9,6 +9,23 @@ Interface en **portugais du Brésil**. Trois catégories : *Cobrar do cliente*, 
 
 ---
 
+
+## Nouveautés de cette version
+
+- **Conversion automatique en USD** : on saisit le **valor** et la **moeda d'origine** ; l'app calcule le
+  montant en USD et **conserve la valeur + devise d'origine** (colonnes `valor_orig`, `moeda_orig`, `taxa_usd`,
+  `valor_usd`). Le taux BRL→USD est pré-rempli (BCB par défaut, ou taux live) et **modifiable ligne par ligne**
+  pour coller au taux réel de votre relevé Wise.
+- **Édition d'un lançamento** : bouton ✎ sur chaque ligne (data, descrição, catégorie, valor, moeda, taxa,
+  pago via, recibo, obs). Le montant USD est recalculé automatiquement.
+- **Ajout de fonds (aportes)** : onglet « ➕ Aporte de fundos » (date, commentaire, valor, moeda, pago via, recibo).
+  Une carte **Saldo = fondos − despesas** (en USD) s'affiche en direct. Deux aportes connus (4.000 et 2.415 USD)
+  sont pré-chargés ; ajoutez les virements manquants une fois vérifiés.
+- **Lecture OCR du recibo (optionnel)** : si `OCR_PROVIDER` est configuré (anthropic/openai), un bouton
+  « 📷 Ler recibo » lit la photo et pré-remplit valor/moeda/data/descrição. ⚠️ L'OCR lit **ce qui est visible** :
+  si la photo est coupée, il ne peut pas deviner la partie manquante — complétez à la main et photographiez
+  le recibo en entier.
+
 ## 1. Démarrage rapide (mode local, sans configuration)
 
 ```bash
